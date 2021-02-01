@@ -1,0 +1,2 @@
+#!/bin/bash
+printf '%o\n' $(($(printf 5#$WATER | tr '[water]' '[01234]') + $(printf 5#$STIR | tr '[stir.]' '[01234]'))) | tr '[01234567]''[behlnort]'
