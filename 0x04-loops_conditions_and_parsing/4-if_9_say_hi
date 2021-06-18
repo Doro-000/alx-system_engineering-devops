@@ -7,7 +7,7 @@ do
     echo "Holberton School"
     if [ $n -eq 9 ]
     then
-        echo "hi"
+        echo "Hi"
     fi
     n=$(( n + 1 ))
 done
