@@ -4,5 +4,5 @@
 list=$(ls)
 for file in $list
 do
-    echo $(ls $file | cut -d- -f2)
+    find "$file" | cut -d- -f2
 done
