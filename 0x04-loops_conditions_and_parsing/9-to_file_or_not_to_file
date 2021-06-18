@@ -2,18 +2,10 @@
 # displays information about the holbertonschool file
 
 filename="holbertonschool"
-_=0
 
 if [ -e $filename ]
 then
     echo "holbertonschool file exists"
-    _=1
-else
-    echo "holbertonschool file does not exist"
-fi
-
-if [ "$_" == "1" ]
-then
     if [ -s $filename ]
     then
         echo "holbertonschool file is not empty"
@@ -24,4 +16,6 @@ then
     then
         echo "holbertonschool is a regular file"
     fi
+else
+    echo "holbertonschool file does not exist"
 fi
