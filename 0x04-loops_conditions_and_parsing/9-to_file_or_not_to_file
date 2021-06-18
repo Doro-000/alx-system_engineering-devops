@@ -2,17 +2,17 @@
 # displays information about the holbertonschool file
 
 filename="holbertonschool"
-flag=0
+_=0
 
 if [ -e $filename ]
 then
     echo "holbertonschool file exists"
-    flag=1
+    _=1
 else
     echo "holbertonschool file does not exist"
 fi
 
-if [ flag -eq 1 ]
+if [ $_ = 1 ]
 then
     if [ -s $filename ]
     then
