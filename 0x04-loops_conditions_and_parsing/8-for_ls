@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# displays the content of the current directory in a certain format
+
+list=$(ls)
+for file in $list
+do
+    echo $(ls $file | cut -d- -f2)
+done
