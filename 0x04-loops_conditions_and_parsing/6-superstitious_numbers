@@ -16,6 +16,7 @@ do
             echo "bad luck from Italy"
             ;;
         *)
+            ;;
     esac
     n=$(( n + 1 ))
 done
