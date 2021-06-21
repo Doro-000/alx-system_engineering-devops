@@ -3,11 +3,15 @@
 # and various messages based on signal recieved
 
 echo "$$" > /var/run/holbertonscript.pid
-trap "{ echo 'I hate the kill command'; remove_exit }" SIGTERM
-trap "{ echo 'Y U no love me?!'; }" SIGINT
+trap "echo 'Y U no love me?!'" SIGINT
+trap remove_exit 1 SIGTERM
 trap remove_exit SIGQUIT
 
-function remove_exit () {
+function remove_exit {
+    if [ $1 == 1 ]
+    then
+       echo 'I hate the kill command'
+    fi
     rm -f /var/run/holbertonscript.pid
     exit 1
 }
