@@ -3,7 +3,7 @@
 # and various messages based on signal recieved
 
 echo "$$" > /var/run/holbertonscript.pid
-trap "echo 'Y U no love me?!'" SIGINT
+trap "{ echo 'Y U no love me?!'; }" SIGINT
 trap remove_exit 1 SIGTERM
 trap remove_exit SIGQUIT
 
