@@ -10,14 +10,14 @@ function remove_exit {
        echo 'I hate the kill command'
     fi
     rm -f /var/run/holbertonscript.pid
-    exit 1
+    exit
 }
 
 while :
 do
     echo "To infinity and beyond"
     sleep 2
-    trap "{ echo 'Y U no love me?!'; }" SIGINT
+    trap "echo Y U no love me?!" SIGINT
     trap remove_exit 1 SIGTERM
     trap remove_exit SIGQUIT
 done
