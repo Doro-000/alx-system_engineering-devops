@@ -18,8 +18,10 @@ int main()
 	for (i = 0; i < 5; i++)
 	{
 		child_id = fork();
-		printf("Zombie process created, PID: %ld\n", (long int) child_id);
-		exit(1);
+		if (child_id > 0)
+			printf("Zombie process created, PID: %ld\n", (long int) child_id);
+		else
+			exit(1);
 	}
 	infinite_while();
 	return (0);
