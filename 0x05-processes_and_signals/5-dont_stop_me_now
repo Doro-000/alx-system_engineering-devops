@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This Script displays a list of currently running processes
+
+pgrep -f ./4-to_infinity_and_beyond | kill
