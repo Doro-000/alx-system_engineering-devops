@@ -15,9 +15,9 @@ function remove_exit {
 
 while :
 do
-    echo "To infinity and beyond"
-    sleep 2
     trap "echo Y U no love me?!" SIGINT
     trap remove_exit 1 SIGTERM
     trap remove_exit SIGQUIT
+    echo "To infinity and beyond"
+    sleep 2
 done
