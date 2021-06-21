@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This Script displays lines containing the "bash" word
+# from currently running processes
+
+PIDS=$( pgrep -d" " bash )
+ps u -p $PIDS
