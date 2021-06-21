@@ -10,7 +10,7 @@ int infinite_while(void);
  *
  * Return: 0
  */
-int main()
+int main(void)
 {
 	int i;
 	pid_t child_id;
