@@ -19,13 +19,11 @@ int main()
 	{
 		child_id = fork();
 		if (child_id > 0)
-		{
 			printf("Zombie process created, PID: %ld\n", (long int) child_id);
-			infinite_while();
-		}
 		else
-			exit(1);
+			exit(0);
 	}
+	infinite_while();
 	return (0);
 }
 
