@@ -1,15 +1,13 @@
 # configure ssh config
 
-file_line {'no password':
+file_line {'Turn off passwd auth':
+  ensure             => 'present',
   path               => '~/.ssh/config',
   line               =>  'PasswordAuthentication no',
-  match              => '^PasswordAuthentication'
-  append_on_no_match => true,
 }
 
-file_line {'identity file':
+file_line {'Declare identity file':
+  ensure             => 'present',
   path               => '~/.ssh/config',
   line               =>  'IdentityFile ~/.ssh/holberton',
-  match              => '^IdentityFile'
-  append_on_no_match => true,
 }
