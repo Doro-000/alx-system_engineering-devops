@@ -1,7 +1,6 @@
 # configure ssh config
 
-file {'create config':
+file {'/root/.ssh/config':
   ensure  => 'present',
-  path    => '~/.ssh/config',
   content => "PasswordAuthentication no\nIdentityFile ~/.ssh/holberton",
 }
