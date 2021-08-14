@@ -1,13 +1,13 @@
 # configure ssh config
 
-file_line {'Turn off passwd auth':
-  ensure             => 'present',
-  path               => '/etc/ssh/ssh_config',
-  line               =>  'PasswordAuthentication no',
+exec {'Turn off passwd auth':
+  command => "echo -e 'PasswordAuthentication no\n' >> /etc/ssh/ssh_config",
+  path    => ['/usr/bin', '/usr/sbin', '/bin'],
+  cwd     => '/home',
 }
 
-file_line {'Declare identity file':
-  ensure             => 'present',
-  path               => '/etc/ssh/ssh_config',
-  line               =>  'IdentityFile ~/.ssh/holberton',
+exec {'Declare identity file':
+  command=> "echo -e 'IdentityFile ~/.ssh/holbeton\n' >> /etc/ssh/ssh_config",
+  path   => ['/usr/bin', '/usr/sbin', '/bin'],
+  cwd    => '/home',
 }
