@@ -1,14 +1,15 @@
 # configure ssh config
 
-exec {'edit ssh config file':
-  command => "echo -e 'PasswordAuthentication no\n' >> ~/.ssh/config",
-  path    => ['/usr/bin', '/usr/sbin', '/bin'],
-  cwd     => '/home',
-  unless  => "grep 'PasswordAuthentication no' ~/.ssh/config",
+file_line {'no password':
+  path=> '~/.ssh/config',
+  line=>  'PasswordAuthentication no',
+  match=> '^PasswordAuthentication'
+  append_on_no_match=> 'true',
 }
 
-exec {"echo -e 'IdentityFile ~/.ssh/holbeton\n' >> ~/.ssh/config":
-  path   => ['/usr/bin', '/usr/sbin', '/bin'],
-  cwd    => '/home',
-  unless => "grep 'IdentityFile ~/.ssh/holberton' ~/.ssh/config",
+file_line {'identity file':
+  path=> '~/.ssh/config',
+  line=>  'IdentityFile ~/.ssh/holberton',
+  match=> '^IdentityFile'
+  append_on_no_match=> 'true',
 }
