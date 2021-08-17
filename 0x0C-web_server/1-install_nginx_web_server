@@ -2,5 +2,5 @@
 # Bash script that configures Nginx
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-echo "Holberton School for the win!" > index.nginx-debian.html
+echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
 service nginx restart
