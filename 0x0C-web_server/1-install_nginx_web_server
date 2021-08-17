@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Bash script that configures Nginx
 apt-get -y install nginx
+ufw enable
 ufw allow 'Nginx HTTP'
 echo "Holberton School for the win!" > index.html
 cp index.html /var/www/html
