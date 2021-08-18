@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Configure Nginx server so that /redirect_me is redirecting to another page
 STRING="Holberton School for the win!"
-SERVERBOLCK='server {rewrite ^/redirect_me$ https://youtu.be/dQw4w9WgXcQ}'
+SERVER='server {rewrite ^/redirect_me$ https://youtu.be/dQw4w9WgXcQ permanent}'
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 echo "$STRING" > /var/www/html/index.nginx-debian.html
-echo "$SERVERBLOCK" >> /etc/nginx/nginx.conf
+echo "$SERVER" >> /etc/nginx/nginx.conf
 service nginx restart
