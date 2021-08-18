@@ -1,1 +1,12 @@
 #!/usr/bin/env bash
+# Configure Nginx server so that /redirect_me is redirecting to another page
+STRING="Holberton School for the win!"
+REDIRECT="return 301 https://youtu.be/dQw4w9WgXcQ;\n"
+FOUR="Ceci n'est pas une page"
+FILE="/etc/nginx/sites-available/default"
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "$STRING" > /var/www/html/index.nginx-debian.html
+sed -i "s%^\s*return 301 .*%\a return 404 $FOUR%" "$FILE"
+service nginx restart
