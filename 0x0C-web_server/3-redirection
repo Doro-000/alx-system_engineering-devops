@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # Configure Nginx server so that /redirect_me is redirecting to another page
 STRING="Holberton School for the win!"
-SERVER='server {rewrite ^/redirect_me$ https://youtu.be/dQw4w9WgXcQ permanent}'
+LOCATION="location /redirect_me {"
+REDIRECT="return 301 https://youtu.be/dQw4w9WgXcQ;\n"
+FILE="/etc/nginx/sites-available/default"
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 echo "$STRING" > /var/www/html/index.nginx-debian.html
-echo "$SERVER" >> /etc/nginx/nginx.conf
+sed -i "s%^\s*location /.*% $LOCATION%" "$FILE"
+sed -i "s%^\s*location /.*%\a $REDIRECT%" "$FILE"
 service nginx restart
