@@ -12,7 +12,7 @@ file {'/var/www/html/index.nginx-debian.html':
 }
 
 exec {'configure redirect':
-  command => "sed -i '37i\ ${REDIRECT}' ${FILE}",
+  command => "sed -i '37i\ ${redirect}' ${file}",
   path    => '/usr/bin:/usr/sbin:/bin',
 }
 
