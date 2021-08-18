@@ -1,0 +1,3 @@
+# setup nginx
+
+class { "nginx":}
