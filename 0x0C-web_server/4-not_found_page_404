@@ -1,12 +1,21 @@
 #!/usr/bin/env bash
 # Configure Nginx server so that /redirect_me is redirecting to another page
 STRING="Holberton School for the win!"
-REDIRECT="return 301 https://youtu.be/dQw4w9WgXcQ;\n"
-FOUR="Ceci n'est pas une page"
+
+REDIRECT="\n\tlocation /redirect_me {\n\t\treturn 301 https://youtu.be/dQw4w9WgXcQ;\n\t}\n"
 FILE="/etc/nginx/sites-available/default"
+
+ERRORFILE="/usr/share/nginx/html/404error.html"
+FOUR="Ceci n'est pas une page\n"
+ERRORREDIRECT="\n\terror_page 404 /404error.html;\n\tlocation = /404error.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
+
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-echo "$STRING" > /var/www/html/index.nginx-debian.html
-sed -i "s%^\s*return 301 .*%\a return 404 $FOUR%" "$FILE"
+sudi echo "$STRING" > /var/www/html/index.nginx-debian.html
+sed -i "37i\ $REDIRECT" "$FILE"
+
+echo "$FOUR" > "$ERRORFILE"
+sed -i "37i\ $ERRORREDIRECT" "$FILE"
+
 service nginx restart
