@@ -13,7 +13,7 @@ FOUR="Ceci n'est pas une page"
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
-sudo echo "$STRING" > /var/www/html/index.nginx-debian.html
+echo "$STRING" > /var/www/html/index.nginx-debian.html
 sed -i "37i\ $REDIRECT" "$FILE"
 
 echo "$FOUR" > "$ERRORFILE"
