@@ -1,8 +1,10 @@
 # creates a custom HTTP header response
 
+exec {'/usr/bin/apt-get update':
+}
+
 package {'nginx':
   ensure  => installed,
-  require  => Exec['apt-get update'],
 }
 
 file_line {'configure redirection':
