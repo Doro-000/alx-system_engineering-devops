@@ -9,7 +9,7 @@ FILE="/etc/haproxy/haproxy.cfg"
 server_1="34.138.61.3:80"
 server_2="34.75.118.132:80"
 
-FRONTEND="\nfrontend LBfrontend\n\tbind *:80\n\tdefault_backend servers\n";
+FRONTEND="\nfrontend LBfrontend\n\tbind *:80\n\tdefault_backend servers\n"
 BACKEND="\nbackend servers\n\tbalance roundrobin\n\tserver server_1 $server_1\n\tserver server_2 $server_2\n"
 
 echo -e "$FRONTEND" | sudo tee -a "$FILE" 
