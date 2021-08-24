@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# make nginx listen on port 80
+file_1="/etc/nginx/sites-enabled/default"
+file_2="/etc/nginx/sites-available/default"
+sudo rm "$file_1"
+ln -s "$file_2" "$file_1"
+service nginx restart
