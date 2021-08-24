@@ -6,7 +6,7 @@ package {'nginx':
 
 file_line {'configure custom header':
   path => '/etc/nginx/sites-available/default',
-  before => 'server_name _;',
+  after => 'server_name _;',
   line => "\n\tadd_header X-Served-By $hostname;\n",
 }
 
