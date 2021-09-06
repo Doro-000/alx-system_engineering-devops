@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# run whoami as the specified user
+if [ -z "$1" ]
+then
+	sudo whoami
+else
+	sudo -u "$1" whoami
+fi
