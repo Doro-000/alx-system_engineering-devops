@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# creates a compressed version of a sql dump
+mysqldump --user=root --password=$1 --all-databases --result-file=backup.sql
+tar -zcvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
