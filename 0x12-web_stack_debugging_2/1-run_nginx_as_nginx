@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # runs nginx as nginx
 sudo sed -i '1i user nginx;' /etc/nginx/nginx.conf
-sudo sed -i '/listen 80 default_server;/c\\tlisten *:8080 default_server;' /etc/nginx/sites-enabled/default
+sudo sed -i 's/80 default/8080 default/' /etc/nginx/sites-enabled/default
 sudo pkill apache2
 chown nginx:nginx /etc/nginx/nginx.conf /run/nginx.pid
 chmod 644 /etc/nginx/nginx.conf
