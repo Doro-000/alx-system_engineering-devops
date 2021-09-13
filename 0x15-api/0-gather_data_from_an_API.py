@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """uses the JSONPlaceholder api to query data about an employee"""
 
-from requests import get
 from sys import argv
+from requests import get
 
 
 if __name__ == "__main__":
