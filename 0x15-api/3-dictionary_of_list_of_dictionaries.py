@@ -22,7 +22,7 @@ if __name__ == "__main__":
         name_result = get(name_url).json()
         for todo in todo_result:
             todo_dict = {}
-            todo_dict.update({"username": name_result.get("name"),
+            todo_dict.update({"username": name_result.get("username"),
                               "task": todo.get("title"),
                               "completed": todo.get("completed")})
             todo_list.append(todo_dict)

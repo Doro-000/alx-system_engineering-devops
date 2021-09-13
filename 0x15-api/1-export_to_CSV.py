@@ -17,7 +17,7 @@ if __name__ == "__main__":
     for todo in todo_result:
         todo_dict = {}
         todo_dict.update({"user_ID": argv[1], "username": name_result.get(
-            "name"), "completed": todo.get("completed"),
+            "username"), "completed": todo.get("completed"),
             "task": todo.get("title")})
         todo_list.append(todo_dict)
     with open("{}.csv".format(argv[1]), 'w', newline='') as f:
