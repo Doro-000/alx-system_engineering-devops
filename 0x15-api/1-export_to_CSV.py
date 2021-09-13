@@ -21,6 +21,6 @@ if __name__ == "__main__":
             "task": todo.get("title")})
         todo_list.append(todo_dict)
     with open("{}.csv".format(argv[1]), 'w', newline='') as f:
-        header = todo_list[0].keys()
+        header = ["user_ID", "username", "completed", "task"]
         writer = DictWriter(f, fieldnames=header, quoting=QUOTE_ALL)
         writer.writerows(todo_list)
