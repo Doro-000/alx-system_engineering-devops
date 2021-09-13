@@ -20,5 +20,5 @@ if __name__ == "__main__":
             "completed"), "username": name_result.get("name")})
         todo_list.append(todo_dict)
 
-    with open("USER_ID.json", 'w') as f:
+    with open("{}.json".format(argv[1]), 'w') as f:
         dump({argv[1]: todo_list}, f)
