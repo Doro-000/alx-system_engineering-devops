@@ -22,11 +22,11 @@ def count_words(subreddit, word_list, count_dict={}, after=None):
             title = post.get("data").get("title")
             word_list = [word.lower() for word in word_list]
             for word in word_list:
-                count = title.split().count(word)
+                w_count = title.split().count(word)
                 if count_dict.get(word):
-                    count_dict[word] += count
+                    count_dict[word] += w_count
                 else:
-                    count_dict[word] = count
+                    count_dict[word] = w_count
         if req.json().get("data").get("after"):
             count_words(
                 subreddit,
