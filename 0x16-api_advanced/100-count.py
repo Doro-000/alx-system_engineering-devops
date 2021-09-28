@@ -41,4 +41,4 @@ def count_words(subreddit, word_list, count_dict={}, after=None):
                         kv[0]),
                     reverse=True):
                 if pair[1]:
-                    print(pair[0], ": ", pair[1])
+                    print("{}: {}".format(pair[0].strip(), pair[1]))
