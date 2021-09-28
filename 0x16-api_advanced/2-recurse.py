@@ -22,7 +22,7 @@ def recurse(subreddit, hot_list=[], after=None):
         for post in posts:
             hot_list.append(post.get("data").get("title"))
         if req.json().get("data").get("after"):
-            recurse(
+            return recurse(
                 subreddit,
                 hot_list=hot_list,
                 after=req.json().get("data").get("after"))
