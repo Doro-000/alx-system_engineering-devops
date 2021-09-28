@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-from requests import get
 """contains function that queries the reddit api"""
+
+from requests import get
 
 
 def count_words(subreddit, word_list, count_dict={}, after=None):
