@@ -35,9 +35,10 @@ def count_words(subreddit, word_list, count_dict={}, after=None):
                 after=req.json().get("data").get("after"))
         else:
             for pair in sorted(
-                    count_dict,
+                    count_dict.items(),
                     key=lambda kv: (
                         kv[1],
                         kv[0]),
-                    reversed=True):
-                print(pair[0], ": ", pair[1])
+                    reverse=True):
+                if pair[1]:
+                    print(pair[0], ": ", pair[1])
